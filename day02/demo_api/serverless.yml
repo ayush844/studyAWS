@@ -1,0 +1,21 @@
+service: youtube-api
+frameworkVersion: "4"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+
+functions:
+  youtubeHelloFunction:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
+  youtubeByeFunction:
+    handler: bye.handler
+    events:
+      - httpApi:
+          path: /bye
+          method: GET
